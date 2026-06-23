@@ -23,8 +23,8 @@ public class Biblioteca {
     public Autor cadastrarAutor(String nome, Instant dataDeNascimento) {
         Autor autor = new Autor(nome, dataDeNascimento);
         autor.setId(proximoIdAutor);
-        autores.add(autor);          // adiciona na lista certa
-        proximoIdAutor++;        // incrementa o contador
+        autores.add(autor);
+        proximoIdAutor++;
         return autor;
     }
 
@@ -107,5 +107,20 @@ public class Biblioteca {
         proximoIdEmprestimo++;
 
         return emprestimo;
+    }
+
+    public void inicializarDados() {
+        cadastrarAutor("Autor 1", Instant.now());
+        cadastrarAutor("Autor 2", Instant.now());
+        cadastrarAutor("Autor 3", Instant.now());
+
+        cadastrarCliente("Cliente 1", "cliente1@email.com");
+        cadastrarCliente("Cliente 2", "cliente2@email.com");
+        cadastrarCliente("Cliente 3", "cliente3@email.com");
+
+        Livro livro1 = cadastrarLivro("Livro 1", 1L);
+        livro1.setDisponivel(false);
+        cadastrarLivro("Livro 2", 2L);
+        cadastrarLivro("Livro 3", 3L);
     }
 }
